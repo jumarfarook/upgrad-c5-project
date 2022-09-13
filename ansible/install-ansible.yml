@@ -1,0 +1,15 @@
+---
+ - hosts: bastion
+   become: yes
+   become_user: root
+ 
+   tasks:
+    - name: update apt cache
+      apt:
+        update_cache: yes
+        state: present
+
+    - name: install ansible
+      apt: 
+        name: ansible
+        state: present

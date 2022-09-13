@@ -1,0 +1,14 @@
+all:
+  hosts:
+  vars:
+    ansible_user: ubuntu
+  children:
+    bastion:
+      hosts:
+        3.86.16.244:
+    jenkins:
+      hosts:
+        10.0.1.111:
+    app:
+      hosts:
+        10.0.1.32:
