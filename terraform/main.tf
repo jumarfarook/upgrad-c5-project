@@ -44,6 +44,10 @@ resource "aws_iam_role" "role" {
     ]
   }
   EOF
+
+  tags = {
+    Terraform = "true"
+  }
 }
 
 resource "aws_iam_policy" "policy" {
@@ -324,7 +328,7 @@ module "alb" {
       targets = {
         app_target = {
           target_id = aws_instance.app-ec2.private_ip
-          port      = 80
+          port      = 8080
         }
       }
     }
